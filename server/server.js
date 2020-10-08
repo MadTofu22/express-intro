@@ -25,7 +25,7 @@ app.get('/quotes', (req, res) => {
 app.get('/randomQuote', (req, res) => {
     
     let index = randomNumber(0, (quotesData.list.length-1));
-    res.send(quotesData.list[index]);
+    res.send(quotesData.list);
     
 });
 
@@ -38,7 +38,7 @@ function randomNumber (min, max) {
 app.post('/quotes', (req, res) => {
     
     console.log('hello from post', req.body);
-    quotesData.push(req.body);
+    quotesData.list.push(req.body);
     res.sendStatus(200);
 });
 
